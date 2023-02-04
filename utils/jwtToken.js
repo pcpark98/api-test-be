@@ -4,9 +4,8 @@ const { TokenIssueError, } = require("../error/error");
 const path = require("path");
 dotenv.config({path : path.join(__dirname, '../.env')});
 
-module.exports.issueToken = async (reqId, expire = "30d") =>{
+module.exports.issueToken = async (reqId, expire = "7d") =>{
     try{
-        console.log(reqId);
         const signedJwt = jwt.sign(
             { // payload
                 id : reqId,
